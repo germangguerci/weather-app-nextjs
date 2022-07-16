@@ -14,7 +14,6 @@
 
 # production
 /build
-/b21
 
 # misc
 .DS_Store
