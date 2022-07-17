@@ -1,10 +1,12 @@
-import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
+
+import NavBar from './NavBar';
 
 const Layout = ({ children }) => {
   return (
     <PageContainer>
+      <NavBar />
       <AnimatePresence exitBeforeEnter>
         {children}
       </AnimatePresence>
