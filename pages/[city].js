@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import SectionContainer from "../components/common/SectionContainer";
 import CityWeather from "../components/public/CityWeather";
 import getCityData from "../utils/getCityData";
 
@@ -27,8 +28,9 @@ export default function City() {
   }, [city]);
 
   return (
-
-    !cityData ? <p>City not found</p>
-      : <CityWeather lat={cityData?.lat} lon={cityData?.lon} />
+    <SectionContainer>
+      {!cityData ? <p>City not found</p>
+        : <CityWeather lat={cityData?.lat} lon={cityData?.lon} />}
+    </SectionContainer>
   );
 }

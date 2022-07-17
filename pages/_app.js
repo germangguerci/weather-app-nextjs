@@ -2,6 +2,7 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 
 import WheaterContextProvider from "../context/WeatherContext";
 import GlobalStyles from '../configs/theme';
+import Layout from '../components/common/Layout';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,7 +20,9 @@ function MyApp({ Component, pageProps }) {
     <QueryClientProvider client={queryClient}>
       <WheaterContextProvider>
         <GlobalStyles />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </WheaterContextProvider>
     </QueryClientProvider>
   );

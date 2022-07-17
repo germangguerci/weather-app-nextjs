@@ -20,4 +20,5 @@ export default function CityWeather({ lat, lon }) {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 100%;
 `;

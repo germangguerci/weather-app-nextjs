@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { motion } from 'framer-motion';
 
 import CityWeather from '../components/public/CityWeather';
+import SectionContainer from '../components/common/SectionContainer';
 
 export default function Home() {
 
@@ -14,9 +15,9 @@ export default function Home() {
       <Head>
         <title>Small weather app</title>
       </Head>
-      <div>
+      <SectionContainer >
         <CityWeather lat={lat} lon={lon} />
-      </div>
+      </SectionContainer>
     </motion.div>
   );
 }
