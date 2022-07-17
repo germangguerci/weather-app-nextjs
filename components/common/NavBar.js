@@ -54,6 +54,8 @@ const MainNav = styled.nav`
           }
           &.active {
             color: #3c4043;
+            font-weight: 700; 
+            text-decoration: underline 2px solid;
           }
         }
       }
