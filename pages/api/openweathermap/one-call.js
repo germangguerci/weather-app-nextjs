@@ -13,5 +13,5 @@ export default async function handler(req, res) {
       return err?.response?.data;
     });
 
-  res.status(apiResponse?.cod).json(apiResponse);
+  res.status(apiResponse?.cod || 500).json(apiResponse);
 }

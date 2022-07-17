@@ -3,16 +3,17 @@ import { motion } from 'framer-motion';
 
 import {
   useQuery,
-  useQueryClient,
 } from 'react-query';
-import axios from 'axios';
+
+import getCityWeather from '../utils/getCityWeather';
 
 export default function Home() {
 
-  const queryClient = useQueryClient();
+  //Lat and lon from Rio De Janeiro.
+  const lat = "-22.908333";
+  const lon = "-43.196388";
 
-  const { isLoading, error, data } = useQuery(['oneCall', 'test'],
-    async () => axios.get('/api/openweathermap/one-call/?lat=-22.908333&lon=-43.196388'));
+  const { isLoading, error, data } = useQuery(['getCityWeather', { lat, lon }], async () => getCityWeather(lat, lon));
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key="home" style={{ width: '100%' }}>
@@ -21,6 +22,9 @@ export default function Home() {
       </Head>
       <div>
         <h1>This will be a great weather app!</h1>
+        {isLoading && "loading"}
+        {error && "error"}
+        {data && "data loaded"}
       </div>
     </motion.div>
   );
