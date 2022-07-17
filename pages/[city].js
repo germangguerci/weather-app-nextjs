@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import SectionContainer from "../components/common/SectionContainer";
 import CityWeather from "../components/public/CityWeather";
 import getCityData from "../utils/getCityData";
+import Head from "next/head";
 
 export default function City() {
 
@@ -31,6 +32,9 @@ export default function City() {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key={city} style={{ width: '100%' }}>
+      <Head>
+        <title>Small weather app</title>
+      </Head>
       <SectionContainer>
         {!cityData ? <p>City not found</p>
           : <CityWeather lat={cityData?.lat} lon={cityData?.lon} />}
