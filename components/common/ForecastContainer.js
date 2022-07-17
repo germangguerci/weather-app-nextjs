@@ -26,7 +26,8 @@ const Container = styled.section`
   }
   ul {
     display: flex;
-    overflow: hidden;
+    overflow-x: scroll;
+    overflow-y: hidden;
   }
   @media (max-width: 768px){
     padding: 0.25rem 0.5rem;
