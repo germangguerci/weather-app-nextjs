@@ -14,4 +14,15 @@ export default function ForecastContainer({ title, children }) {
 const Container = styled.section`
   display: flex;
   flex-direction: column;
+  padding: 1rem;
+  h3{
+    font-size: 2rem;
+    margin: 0 0 2.6rem 0;
+    padding: 1rem;
+    border-bottom: 1px solid #e7e7e7;
+  }
+  ul {
+    display: flex;
+    overflow: hidden;
+  }
 `;

@@ -6,12 +6,12 @@ export default function HourlyForecast({ data }) {
   const HourlyCards = data.list.map((item, index) => {
     const { temp, humidity } = item.main;
     const hour = item.dt_txt.slice(10, 16);
-    return <HourlyCard key={index} temperature={temp} humidity={humidity} weather={item.weather[0].icon} timeText={hour} />;
+    return <HourlyCard key={index} temperature={temp} humidity={humidity} weather={item.weather[0]} timeText={hour} />;
   });
 
 
   return (
-    <ForecastContainer title={data?.city?.name}>
+    <ForecastContainer title="Next hours">
       {HourlyCards}
     </ForecastContainer>
   );
