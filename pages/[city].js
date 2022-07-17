@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import CityWeather from "../components/public/CityWeather";
+import getCityData from "../utils/getCityData";
 
 export default function City() {
 
@@ -7,6 +9,7 @@ export default function City() {
   const queryCity = router.query?.city;
 
   const [city, setCity] = useState(null);
+  const [cityData, setCityData] = useState(null);
 
   useEffect(() => {
     if (router?.isReady) {
@@ -14,7 +17,18 @@ export default function City() {
     }
   }, [router?.isReady, queryCity]);
 
+  useEffect(() => {
+    if (city) {
+      const response = getCityData(city);
+      if (response) {
+        setCityData(response);
+      }
+    }
+  }, [city]);
+
   return (
-    <h1>{city}</h1>
+
+    !cityData ? <p>City not found</p>
+      : <CityWeather lat={cityData?.lat} lon={cityData?.lon} />
   );
 }
