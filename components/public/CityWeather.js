@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import styled from "styled-components";
 import { useQuery } from 'react-query';
-import { styled } from 'styled-components';
+
 import getCityWeather from '../../utils/getCityWeather';
 import HourlyForecast from './HourlyForecast';
 
@@ -12,7 +12,7 @@ export default function CityWeather({ lat, lon }) {
     <Container>
       {isLoading && "loading"}
       {error && "error"}
-      {data && <HourlyForecast data={data} />}
+      {data && <HourlyForecast data={data?.data} />}
     </Container>
   );
 }
