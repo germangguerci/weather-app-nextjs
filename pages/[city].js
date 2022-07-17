@@ -30,7 +30,7 @@ export default function City() {
   }, [city]);
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key="home" style={{ width: '100%' }}>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key={city} style={{ width: '100%' }}>
       <SectionContainer>
         {!cityData ? <p>City not found</p>
           : <CityWeather lat={cityData?.lat} lon={cityData?.lon} />}
