@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { motion } from 'framer-motion';
+
 import SectionContainer from "../components/common/SectionContainer";
 import CityWeather from "../components/public/CityWeather";
 import getCityData from "../utils/getCityData";
@@ -28,9 +30,11 @@ export default function City() {
   }, [city]);
 
   return (
-    <SectionContainer>
-      {!cityData ? <p>City not found</p>
-        : <CityWeather lat={cityData?.lat} lon={cityData?.lon} />}
-    </SectionContainer>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key="home" style={{ width: '100%' }}>
+      <SectionContainer>
+        {!cityData ? <p>City not found</p>
+          : <CityWeather lat={cityData?.lat} lon={cityData?.lon} />}
+      </SectionContainer>
+    </motion.div>
   );
 }
