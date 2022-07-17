@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 
 import getCityWeather from '../../utils/getCityWeather';
 import HourlyForecast from './HourlyForecast';
+import DailyForecast from "./DailyForecast";
 
 export default function CityWeather({ lat, lon }) {
 
@@ -12,7 +13,12 @@ export default function CityWeather({ lat, lon }) {
     <Container>
       {isLoading && "loading"}
       {error && "error"}
-      {data && <HourlyForecast data={data?.data} />}
+      {data &&
+        <>
+          <HourlyForecast data={data?.data} />
+          <DailyForecast data={data?.data} />
+        </>
+      }
     </Container>
   );
 }

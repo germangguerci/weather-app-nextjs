@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function ForecastContainer({ title, children }) {
+export default function ForecastContainer({ title, listDirection = 'row', children }) {
   return (
-    <Container>
+    <Container listDirection={listDirection}>
       <h3>{title}</h3>
       <ul>
         {children}
@@ -18,6 +18,7 @@ const Container = styled.section`
   border-radius: 1rem;
   background-color: #ffffff;
   overflow: hidden;
+  margin: 1rem 0;
   h3{
     font-size: 2rem;
     margin: 0 0 2.6rem 0;
@@ -28,6 +29,7 @@ const Container = styled.section`
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
+    flex-direction: ${props => props?.listDirection}
   }
   @media (max-width: 768px){
     padding: 0.25rem 0.5rem;
