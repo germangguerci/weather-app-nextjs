@@ -35,6 +35,10 @@ const Card = styled.li`
   align-items: center;
   text-align: center;
   border-bottom: 1px solid #e7e7e7;
+  @media (max-width: 768px){
+    padding: 1.5rem 0 0.5rem 0;
+
+  }
 `;
 
 const Span = styled.span`
@@ -49,6 +53,9 @@ const BlackSpan = styled(Span)`
 const DateAndWeather = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px){
+    margin: 0 0.5rem;
+  }
 `;
 
 const IconContainer = styled.div`

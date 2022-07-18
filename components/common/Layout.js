@@ -22,7 +22,7 @@ const PageContainer = styled.div`
   width:100%;
   position:relative;
   display:flex;
-  justify-content:flex-start;
+  justify-content: flex-start;
   align-items: center;
   flex-direction:column;
   min-height: 100vh;

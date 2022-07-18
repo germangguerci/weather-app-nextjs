@@ -7,21 +7,31 @@ export default function NavBar() {
   const router = useRouter();
 
   return (
-    <MainNav>
-      <div className="navigation-container">
-        <Link href="/" scroll={false} passHref>
-          <a className={router.route === '/' ? 'active' : ''}>Rio de janeiro</a>
-        </Link>
-        <Link href="/los+angeles" scroll={false} passHref>
-          <a className={router.query?.city === 'los+angeles' ? 'active' : ''}>Los Angeles</a>
-        </Link>
-        <Link href="/beijing" scroll={false} passHref>
-          <a className={router.query?.city === 'beijing' ? 'active' : ''}>Beijing</a>
-        </Link>
-      </div>
-    </MainNav>
+    <Container>
+      <MainNav>
+        <div className="navigation-container">
+          <Link href="/" scroll={false} passHref>
+            <a className={router.route === '/' ? 'active' : ''}>Rio de janeiro</a>
+          </Link>
+          <Link href="/los+angeles" scroll={false} passHref>
+            <a className={router.query?.city === 'los+angeles' ? 'active' : ''}>Los Angeles</a>
+          </Link>
+          <Link href="/beijing" scroll={false} passHref>
+            <a className={router.query?.city === 'beijing' ? 'active' : ''}>Beijing</a>
+          </Link>
+        </div>
+      </MainNav>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 0 1.4rem;
+  justify-content: center;
+  align-items: center;
+`;
 
 const MainNav = styled.nav`
   display: flex;
@@ -37,7 +47,6 @@ const MainNav = styled.nav`
   margin: 1rem;
   max-width: 1200px;
   @media (max-width: 768px){
-    max-width: 90%;
     margin: 1rem auto;
   }
   .navigation-container {
