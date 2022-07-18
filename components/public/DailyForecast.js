@@ -4,9 +4,13 @@ import DailyCard from "./DailyCard";
 export default function DailyForecast({ data }) {
 
   const DailyCards = data.list.map((item, index) => {
-    const { temp, humidity } = item.main;
-    const hour = item.dt_txt.slice(10, 16);
-    return <DailyCard key={index} temperature={temp} humidity={humidity} weather={item.weather[0]} timeText={hour} />;
+    const { temp_max, temp_min } = item.main;
+    const temp = {
+      max: temp_max,
+      min: temp_min
+    };
+    const timestamp = item.dt;
+    return <DailyCard key={index} temperature={temp} weather={item.weather[0]} timestamp={timestamp} />;
   });
 
   return (
