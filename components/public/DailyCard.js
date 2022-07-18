@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function DailyCard({ temperature, weather, timestamp }) {
   const date = new Date(timestamp * 1000);
-  const textDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(date);
+  const textDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'short' }).format(date);
   return (
     <Card>
       <IconContainer>

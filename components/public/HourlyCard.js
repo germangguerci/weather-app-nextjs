@@ -1,9 +1,12 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-export default function HourlyCard({ temperature, humidity, weather, timeText }) {
+export default function HourlyCard({ temperature, humidity, weather, timeText, timestamp }) {
+  const date = new Date(timestamp * 1000);
+  const textDay = new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date).slice(0, 3);
   return (
     <Card>
+      <Span>{textDay}</Span>
       <Temperature>{Math.ceil(temperature).toString().slice(0, 2) + "°"}</Temperature>
       <Span>{humidity + '%'}</Span>
       <IconContainer>
@@ -23,7 +26,7 @@ const Card = styled.li`
   display: flex;
   flex-direction: column;
   width: 7.5rem;
-  height: 12rem;
+  height: 13rem;
   padding: 1.5rem;
   background-color: #ffffff;
   font-size: 1.3rem;  
